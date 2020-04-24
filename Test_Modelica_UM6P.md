@@ -77,7 +77,7 @@ Pour l’atterrissage sur Mars on a hérité le modèle Moonlanding, et pour avo
 
 # Ajout d’une 4éme Pipe reliant la sortie de Pipe1 à boundary2
 
-model Example2 "Minimalist pipe network"
+`model Example2 "Minimalist pipe network"
   extends Modelica.Icons.Example;
   package water = Modelica.Media.Water.ConstantPropertyLiquidWater;
 
