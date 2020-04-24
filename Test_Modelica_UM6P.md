@@ -8,6 +8,7 @@ Dans cette section on réalisera un model MarsLanding pour un atterrissage réus
 Pour simplifier les calculs, on a considéré un atterrissage vertical sans frottement. Le problème se limite à une seule dimension (comme le montre la figure ci-après).
 
   ![clipboard](https://i.imgur.com/hqudlKd.png)
+  
 Si on appelle Thrust la poussée du moteur et mg la force de gravité appliquée par le corps céleste sur Apollo, l’équation du mouvement permet d’écrire : 
 
 ![clipboard](https://i.imgur.com/g4GEBpw.png)
