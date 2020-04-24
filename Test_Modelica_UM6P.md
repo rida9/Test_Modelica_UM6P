@@ -1,5 +1,5 @@
 # Atterrissage sur MARS
-Dans cette section on réalisera un model MarsLanding pour un atterrissage réussi de la fusée Apollo sur Mars tout en se basant sur le modèle MoonLanding déjà traité dans le tutoriel Modelica_Tutorial_Fritzson ; par conséquent, pour parvenir à nos fins j’ai procédé comme suit :
+Dans cette section on réalisera un model MarsLanding pour un atterrissage réussi de la fusée Apollo sur Mars tout en se basant sur le modèle MoonLanding déjà traité dans le tutoriel Modelica_Tutorial_Fritzson ; par conséquent, pour parvenir à nos fins on a procédé comme suit :
 ### - Présentation très simplifiée des équations physiques pour spécifier le comportement des classes dans Modelica ;
 ### - Création des classes interactives pour résoudre le problème de l’atterrissage sur Mars ;
 ### - Simulation de l'atterrissage sur Mars.
@@ -56,7 +56,7 @@ Vue que les équations interagissent entre eux et pour simplifier la modélisati
     protected//Les paramètres ci-dessus ne seront pas visible dans les variables de la section tracé
     parameter Real thrustEndTime(unit="s") = 210;
     parameter Real thrustDecreaseTime(unit="s") = 43.2;
-    public// Les paramètres ci-dessus ne seront pas visible dans les variables de la section tracé
+    public// Les paramètres ci-dessus seront visible dans les variables de la section tracé
     Rocket apollo(name="apollol3", mass(start=1038.358));
     CeiestiaiBody moon(mass=7.382e22,radius=1.738e6,name="moon");//Propriétés de la lune
     equation
@@ -87,15 +87,15 @@ Pour l’atterrissage sur Mars on a hérité le modèle Moonlanding, et pour avo
        0;
     apolloM.gravity = mars.g*mars.mass/(apolloM.altitude+mars.radius)^2;
     when apolloM.altitude < 0 then
-    terminate("La fusee touche le sol de la lune");
+    terminate("La fusee touche le sol du Mars");
     end when;
     when apolloM.velocity < 0 then 
-    terminate("La fusee touche le sol de la lune");
+    terminate("La fusee touche le sol du Mars");
     end when;
 `end Marslanding;`
 
 ## 3.  Simulation de l'atterrissage sur Mars :
-Le modèle Marslanding est simulé sur OpenModelica sur un intervalle du temps de [0,230] (s); et pour s'assurer qu'il y aura un bon couple de force (force1, force2) pour un atterrissage réussi sur Mars, il faudra trouver à la fin de la simulation: une altitude, vitesse qui tendent vers zéro et une gravité qui tend vers la gravité au sol de Mars qui vaut 3,711 m/s², pour ce faire, je présenterai dans les graphes ci-dessous l'évolution de ceux-ci en fonction du temps.
+Le modèle Marslanding est simulé sur OpenModelica sur un intervalle du temps de [0,230] (s); et pour s'assurer qu'il y aura un bon couple de force (force1, force2) pour un atterrissage réussi sur Mars, il faudra trouver à la fin de la simulation: une altitude, vitesse qui tendent vers zéro et une gravité qui tend vers la gravité au sol de Mars qui vaut 3,711 m/s², pour ce faire, on présentera dans les graphes ci-dessous l'évolution de ceux-ci en fonction du temps.
 
 ![clipboard](https://i.imgur.com/DrjjkRB.png) ![clipboard](https://i.imgur.com/303fj8i.png)
 
